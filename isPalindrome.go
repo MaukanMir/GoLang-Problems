@@ -50,3 +50,24 @@ func isPalindrome(x int) bool {
     return check == x
 }
 
+
+
+
+// <---- Second Solution --->
+// Runtime: 8 ms, faster than 94.38% of Go online submissions for Palindrome Number.
+// Memory Usage: 5.2 MB, less than 53.16% of Go online submissions for Palindrome Number.
+
+import "strconv"
+func isPalindrome(x int) bool {
+    transform:= strconv.Itoa(x)
+    end:= len(transform)-1
+    for i:= 0;i<len(transform);i++{
+        if string(transform[i]) != string(transform[end]){
+            return false
+        }
+        end-=1
+    }
+    
+    return true
+    
+}
