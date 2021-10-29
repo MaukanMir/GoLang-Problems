@@ -1,16 +1,16 @@
-<-- Directions -->
-217. Contains Duplicate
-Easy
+// <-- Directions -->
+// 217. Contains Duplicate
+// Easy
 
-2772
+// 2772
 
-890
+// 890
 
-Add to List
+// Add to List
 
-Share
-Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
-<-- End Of Directions -->
+// Share
+// Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+// <-- End Of Directions -->
 
 func containsDuplicate(nums []int) bool {
     visited := map[int]bool{}
