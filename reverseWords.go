@@ -49,3 +49,31 @@ func reverseWords(s string) string {
     
     return strings.TrimSpace(ans)
 }
+
+
+
+
+Success
+Details 
+Runtime: 4 ms, faster than 94.59% of Go online submissions for Reverse Words in a String III.
+Memory Usage: 6.5 MB, less than 92.62% of Go online submissions for Reverse Words in a String III.
+
+
+
+import("strings")
+func reverseString(s []byte)  {
+    length := len(s)
+    for i := 0; i < length / 2; i++ {
+      s[i], s[length-i-1] = s[length-i-1], s[i]
+    }
+}
+
+func reverseWords(s string) string {
+    words := strings.Split(s, " ")
+    for k, v := range words {
+        rev := []byte(v)
+        reverseString(rev)
+        words[k] = string(rev)
+    }
+    return strings.Join(words, " ")
+}
