@@ -59,3 +59,38 @@ func invertTree(root *TreeNode) *TreeNode {
     }
     return root
 }
+
+
+
+
+Success
+Details 
+Runtime: 0 ms, faster than 100.00% of Go online submissions for Invert Binary Tree.
+Memory Usage: 2.2 MB, less than 46.77% of Go online submissions for Invert Binary Tree.
+
+
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func invertTree(root *TreeNode) *TreeNode {
+    if root != nil{
+        queue := []*TreeNode{root}
+        for len(queue) >0{
+            current:= queue[0]
+            queue = queue[1:]
+            
+            if current == nil{
+                continue
+            }
+            current.Left, current.Right = current.Right,current.Left
+            
+            queue = append (queue,current.Left,current.Right)
+        }
+    }
+    return root
+}
