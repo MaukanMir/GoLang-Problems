@@ -51,3 +51,34 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
     }
     return node
 }
+
+
+Success
+Details 
+Runtime: 12 ms, faster than 99.38% of Go online submissions for Lowest Common Ancestor of a Binary Search Tree.
+Memory Usage: 7.1 MB, less than 100.00% of Go online submissions for Lowest Common Ancestor of a Binary Search Tree.
+
+
+
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val   int
+ *     Left  *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+
+func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+    node := root
+    
+        if(p.Val > node.Val && q.Val > node.Val){
+            return lowestCommonAncestor(node.Right,p,q)
+        }else if p.Val < node.Val && q.Val < node.Val{
+            return lowestCommonAncestor(node.Left,p,q)
+        }else{
+            return node
+        }
+        
+    return node
+}
