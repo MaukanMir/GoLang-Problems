@@ -52,3 +52,26 @@ func maxProfit(prices []int) int {
     
     return max_price
 }
+
+// Success
+// Details 
+// Runtime: 112 ms, faster than 99.56% of Go online submissions for Best Time to Buy and Sell Stock.
+// Memory Usage: 8.2 MB, less than 96.10% of Go online submissions for Best Time to Buy and Sell Stock.
+
+func maxProfit(prices []int) int {
+    
+    var l,r =(0) ,(1)
+    var maxProfit =float64(0)
+    
+    for r < (len(prices)) {
+        if  prices[l] < prices[r]{
+            var profit = float64(prices[r] - prices[l])
+            maxProfit = math.Max(profit,maxProfit)
+        }else{
+            l = r
+        }
+        r+=1
+    }
+    
+    return int(maxProfit)
+}
