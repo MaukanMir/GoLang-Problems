@@ -45,3 +45,36 @@ func characterReplacement(s string, k int) int {
     
     return result
 }
+
+
+
+func characterReplacement(s string, k int) int {
+    var maxCount = 0;
+    var leftPointer = 0;
+    var result = 0;
+    count := make(map[string]int)
+    
+    for rightPointer :=0; rightPointer < len(s); rightPointer ++{
+        
+        if count[string(s[rightPointer])] == 0{ count[string(s[rightPointer])] =1
+        }else {count[string(s[rightPointer])] += 1}
+        
+        maxCount = max(maxCount, count[string(s[rightPointer])])
+        
+        for (rightPointer - leftPointer +1) - maxCount > k{
+            count[string(s[leftPointer])] -=1
+            leftPointer +=1
+        }
+        
+        result = max(result, rightPointer -leftPointer +1)
+    }
+    
+    return result
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    }
+    return b
+}
